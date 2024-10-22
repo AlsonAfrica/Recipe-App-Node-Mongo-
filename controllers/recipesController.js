@@ -12,14 +12,36 @@ const createItem = async (req,res)=>{
 }
 
 // endpoint to retrive recipes
-const findrecipe = async (req,res)=>{
-  try{
-    const recipe = await Recipe.find()
-    res.status(201).json(recipe)
-  } catch (error){
-    res.status(500).json({error:"an error occurred while fetching recipes",details: error.message})
+// endpoint to retrieve recipes with pagination
+const findrecipe = async (req, res) => {
+  const { page = 1, limit = 2 } = req.query; // Default to page 1 and limit of 10
+  const options = {
+      page: parseInt(page, 10), // Convert to integer
+      limit: parseInt(limit, 10) // Convert to integer
+  };
+
+  try {
+      const recipes = await Recipe.find()
+          .limit(options.limit)
+          .skip((options.page - 1) * options.limit); // Skip records for pagination
+
+      // Count total number of recipes for pagination metadata
+      const totalRecipes = await Recipe.countDocuments();
+      
+      res.status(200).json({
+          totalRecipes,
+          totalPages: Math.ceil(totalRecipes / options.limit),
+          currentPage: options.page,
+          recipes // Return the paginated recipes
+      });
+  } catch (error) {
+      res.status(500).json({
+          error: "an error occurred while fetching recipes",
+          details: error.message
+      });
   }
-}
+};
+
 
 // find recipe by id
 const findRecipeById = async (req,res)=>{
