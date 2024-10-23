@@ -25,7 +25,7 @@ This project implements a RESTful API for a recipe application using Node.js, Ex
 ### Setup Instructions
 1. Clone the repository:
     ``` bash
-        git clone https://github.com/yourusername/recipe-app-api.git
+        git clone https://github.com/AlsonAfrica/Recipe-App-Node-Mongo-
         cd Database
 
 
@@ -135,8 +135,8 @@ Send a DELETE request to /recipes/:id.
  - Send a DELETE request to /recipes/:id.
 
 ## Contact Details
-- Email: nhlkanaiphoradebe337@gmail.com
-- github: 
+- Email: nhlakaniphoradebe337@gmail.com
+- github: https://github.com/AlsonAfrica/Recipe-App-Node-Mongo-
 
 
 
