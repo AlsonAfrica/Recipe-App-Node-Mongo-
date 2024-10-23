@@ -11,8 +11,8 @@ const createItem = async (req,res)=>{
     }
 }
 
-// endpoint to retrive recipes
-// endpoint to retrieve recipes with pagination
+
+// endpoint function to retrieve recipes with pagination
 const findrecipe = async (req, res) => {
   const { page = 1, limit = 2 } = req.query; // Default to page 1 and limit of 10
   const options = {
@@ -43,7 +43,7 @@ const findrecipe = async (req, res) => {
 };
 
 
-// find recipe by id
+// end point function returning a specific recipe by id
 const findRecipeById = async (req,res)=>{
   const {id} = req.params;
   try{
@@ -57,6 +57,7 @@ const findRecipeById = async (req,res)=>{
   }
 }
 
+// endpoint function to delete a specific recipe by id
 const deleteRecipeById = async (req,res)=>{
   const {id} = req.params;
   try{
@@ -70,6 +71,7 @@ const deleteRecipeById = async (req,res)=>{
   }
 }
 
+// end point function to update a specific recipe by id
 const updateRecipeById = async (req,res)=>{
   const {id} = req.params;
   const updateData = req.body;

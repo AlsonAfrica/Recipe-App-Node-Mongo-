@@ -14,7 +14,7 @@ const recipesSchema = new mongoose.Schema(
                     required: true
                 },
                 quantity: {
-                    type: String, // Optional field for ingredient quantity
+                    type: String, 
                     required: false
                 }
             }
@@ -42,7 +42,7 @@ const recipesSchema = new mongoose.Schema(
     }
 );
 
-// Model represents the 'Recipes' collection
+// Model represents the 'Recipes' collection within  Mongo Database
 const Recipe = mongoose.model('Recipe', recipesSchema);
 
 export default Recipe;
